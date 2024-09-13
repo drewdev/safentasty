@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Banner = () => {
   return (
     <div className="relative w-full bg-cover bg-center mt-16" style={{ backgroundImage: 'url(./happy-lunch.jpg)' }}>
