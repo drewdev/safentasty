@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Filters, filterOptions } from '../utils/filterOptions'; // Asegúrate de ajustar la ruta según la ubicación del archivo
+import { Filters, filterOptions } from '../utils/filterOptions';
 
 interface FiltersProps {
   searchTerm: string;

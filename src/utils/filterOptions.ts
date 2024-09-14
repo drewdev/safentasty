@@ -1,4 +1,3 @@
-// Definir la interfaz de los filtros
 export interface Filters {
   glutenFree: boolean;
   dairyFree: boolean;
@@ -14,7 +13,6 @@ export interface Filters {
   paleo: boolean;
 }
 
-// Definir las opciones de filtro
 export const filterOptions = [
   { name: 'glutenFree', label: 'Gluten Free' },
   { name: 'dairyFree', label: 'Dairy Free' },

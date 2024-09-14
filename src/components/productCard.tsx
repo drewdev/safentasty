@@ -79,7 +79,7 @@ const ProductCard = ({
           >
             <div className="space-x-4">
               <p className="text-lg font-bold mb-3">${price.toFixed(2)}</p>
-              <button className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition">
+              <button className="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition">
                 🛒 Add to Cart
               </button>
               <button
@@ -98,7 +98,6 @@ const ProductCard = ({
 
       <div className="mt-4">{renderFilters()}</div>
 
-      {/* Tooltip de ingredientes */}
       {showTooltip && (
         <div className="absolute top-0 left-0 bg-white shadow-lg border p-4 rounded-md mt-2 z-10">
           <h4 className="text-teal-700 text-lg font-bold mb-2">Ingredients:</h4>

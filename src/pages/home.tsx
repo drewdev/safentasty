@@ -5,7 +5,7 @@ import Banner from '../components/banner';
 
 const Home = () => {
   return (
-    <div className="min-h-screen flex flex-col"> {/* Aseguramos que ocupe toda la pantalla */}
+    <div className="min-h-screen flex flex-col">
       <Navbar />
       <Banner />
       <MainSection />

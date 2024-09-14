@@ -22,7 +22,7 @@ export interface Product {
   filters: Filters;
   category: string;
   price: number;
-  ingredients: string[];  // Nueva propiedad para los ingredientes
+  ingredients: string[];
 }
 
 
