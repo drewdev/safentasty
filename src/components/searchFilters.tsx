@@ -7,9 +7,10 @@ interface FiltersProps {
   onSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   selectedFilters: Filters;
   onFilterChange: (filterName: keyof Filters, value: boolean) => void;
+  onClearFilters: () => void;
 }
 
-const SearchFilters = ({ searchTerm, onSearchChange, selectedFilters, onFilterChange }: FiltersProps) => {
+const SearchFilters = ({ searchTerm, onSearchChange, selectedFilters, onFilterChange, onClearFilters }: FiltersProps) => {
   return (
     <div className="bg-gray-100 py-6">
       <div className="container mx-auto px-4">
@@ -26,7 +27,7 @@ const SearchFilters = ({ searchTerm, onSearchChange, selectedFilters, onFilterCh
           />
         </div>
         <h3 className="text-2xl text-teal-600 mb-6">Select your filters 😉</h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-4 ml-6">
           {filterOptions.map((filter) => (
             <label key={filter.name} className="flex items-center text-gray-800">
               <input
@@ -39,6 +40,14 @@ const SearchFilters = ({ searchTerm, onSearchChange, selectedFilters, onFilterCh
               {filter.label}
             </label>
           ))}
+        </div>
+        <div className="flex justify-center items-center">
+          <button
+            onClick={onClearFilters}
+            className="bg-teal-500 text-white px-4 py-2 rounded-md hover:bg-teal-600 transition mt-2"
+          >
+            Clear All Filters 🚫
+          </button>
         </div>
       </div>
     </div>

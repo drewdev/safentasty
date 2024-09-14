@@ -24,6 +24,7 @@ interface ProductProps {
   filters: Filters;
   price: number;
   ingredients: string[];
+  onAddToCart: (productName: string, price: number) => void;
 }
 
 const ProductCard = ({
@@ -35,6 +36,7 @@ const ProductCard = ({
   filters,
   price,
   ingredients = [],
+  onAddToCart
 }: ProductProps) => {
   const [hovered, setHovered] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
@@ -45,7 +47,7 @@ const ProductCard = ({
       .map(([key]) => key);
 
     return activeFilters.map((filter) => (
-      <span key={filter} className="inline-block bg-blue-200 text-blue-700 text-xs px-2 py-1 rounded-full mr-2 mb-2">
+      <span key={filter} className="inline-block bg-teal-100 text-teal-700 text-xs px-2 py-1 rounded-full mr-2 mb-2">
         {filter.replace(/([A-Z])/g, ' $1')}
       </span>
     ));
@@ -79,7 +81,9 @@ const ProductCard = ({
           >
             <div className="space-x-4">
               <p className="text-lg font-bold mb-3">${price.toFixed(2)}</p>
-              <button className="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition">
+              <button 
+                onClick={() => onAddToCart(productName, price)}
+                className="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition">
                 🛒 Add to Cart
               </button>
               <button

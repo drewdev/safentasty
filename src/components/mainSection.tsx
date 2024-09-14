@@ -4,6 +4,13 @@ import { Filters } from '../utils/filterOptions';
 import { products } from '../utils/productsMock';
 import ProductCard from './productCard';
 import SearchFilters from './searchFilters';
+import ShoppingCart from './shoppingCart';
+import { FaShoppingCart } from 'react-icons/fa';
+
+interface CartItem {
+  productName: string;
+  price: number;
+}
 
 const MainSection = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -21,6 +28,9 @@ const MainSection = () => {
     keto: false,
     paleo: false,
   });
+
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const [selectedCategory, setSelectedCategory] = useState<string>(''); 
 
@@ -41,6 +51,11 @@ const MainSection = () => {
     });
   };
 
+  const addToCart = (productName: string, price: number) => {
+    setCartItems((prevItems) => [...prevItems, { productName, price }]);
+    setIsCartOpen(true);
+  };
+
   const filteredProducts = products.filter((product) => {
     const matchesSearchTerm =
       product.productName.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -54,7 +69,20 @@ const MainSection = () => {
   
     return matchesSearchTerm && matchesFilters && matchesCategory;
   });
-  
+
+  const handleClearFilters = () => {
+    setSelectedFilters((prevFilters) =>
+      Object.keys(prevFilters).reduce((acc, key) => {
+        acc[key as keyof Filters] = false;
+        return acc;
+      }, {} as Filters)
+    );
+  };
+
+  const handleClearCart = () => {
+    setCartItems([]);
+  };
+
   return (
     <div className="bg-white flex-1 flex flex-col items-center justify-center w-full pb-8">
       <div className="container mx-auto px-4 text-center">
@@ -64,6 +92,7 @@ const MainSection = () => {
         onSearchChange={handleSearchChange}
         selectedFilters={selectedFilters}
         onFilterChange={handleFilterChange}
+        onClearFilters={handleClearFilters}
       />
 
       <div className="my-6">
@@ -111,10 +140,27 @@ const MainSection = () => {
             filters={product.filters}
             price={product.price}
             ingredients={product.ingredients}
+            onAddToCart={addToCart}
           />
         ))}
       </div>
     </div>
+
+    <div className="fixed right-4 top-1/3 z-50">
+      <button
+        onClick={() => setIsCartOpen(!isCartOpen)}
+        className="text-white bg-teal-500 p-3 rounded-full"
+      >
+        <FaShoppingCart size={24} />
+      </button>
+    </div>
+
+    <ShoppingCart
+      cartItems={cartItems}
+      isCartOpen={isCartOpen}
+      onClose={() => setIsCartOpen(false)}
+      onClearCart={handleClearCart}
+    />
   </div>
 
   );

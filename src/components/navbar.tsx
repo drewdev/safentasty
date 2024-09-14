@@ -12,16 +12,13 @@ const Navbar = () => {
 
           <ul className="flex space-x-8 text-xs md:text-sm custom-xs:text-xxs">
             <motion.li whileHover={{ scale: 1.1 }}>
-              <Link to="/about" className="text-gray-700 hover:text-green-600 transition duration-300">Become a seller</Link>
+              <Link to="#" className="text-gray-700 hover:text-green-600 transition duration-300">Become a seller</Link>
             </motion.li>
             <motion.li whileHover={{ scale: 1.1 }}>
-              <Link to="/about" className="text-gray-700 hover:text-green-600 transition duration-300">About Us</Link>
+              <Link to="#" className="text-gray-700 hover:text-green-600 transition duration-300">About Us</Link>
             </motion.li>
             <motion.li whileHover={{ scale: 1.1 }}>
-              <Link to="/products" className="text-gray-700 hover:text-green-600 transition duration-300">Products</Link>
-            </motion.li>
-            <motion.li whileHover={{ scale: 1.1 }}>
-              <Link to="/contact" className="text-gray-700 hover:text-green-600 transition duration-300">Contact</Link>
+              <Link to="#" className="text-gray-700 hover:text-green-600 transition duration-300">Contact</Link>
             </motion.li>
           </ul>
         </div>
