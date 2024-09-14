@@ -10,7 +10,6 @@ const Navbar = () => {
             <Link to="/" className="text-teal-400 hover:text-teal-600">Safe-n-Tasty</Link>
           </motion.div>
 
-          {/* Links de navegación (se mantienen hacia la derecha) */}
           <ul className="flex space-x-8 text-xs md:text-sm custom-xs:text-xxs">
             <motion.li whileHover={{ scale: 1.1 }}>
               <Link to="/about" className="text-gray-700 hover:text-green-600 transition duration-300">Become a seller</Link>
@@ -28,7 +27,6 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* CSS dentro del mismo archivo */}
       <style>{`
         @media (max-width: 400px) {
           .custom-xs\\:text-xxs {

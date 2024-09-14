@@ -110,6 +110,7 @@ const MainSection = () => {
             soldBy={product.soldBy}
             filters={product.filters}
             price={product.price}
+            ingredients={product.ingredients}
           />
         ))}
       </div>

@@ -23,10 +23,21 @@ interface ProductProps {
   soldBy: string;
   filters: Filters;
   price: number;
+  ingredients: string[];
 }
 
-const ProductCard = ({ productName, description, defaultImage, hoverImage, soldBy, filters, price }: ProductProps) => {
+const ProductCard = ({
+  productName,
+  description,
+  defaultImage,
+  hoverImage,
+  soldBy,
+  filters,
+  price,
+  ingredients = [],
+}: ProductProps) => {
   const [hovered, setHovered] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
 
   const renderFilters = () => {
     const activeFilters = Object.entries(filters)
@@ -38,6 +49,10 @@ const ProductCard = ({ productName, description, defaultImage, hoverImage, soldB
         {filter.replace(/([A-Z])/g, ' $1')}
       </span>
     ));
+  };
+
+  const toggleTooltip = () => {
+    setShowTooltip(!showTooltip);
   };
 
   return (
@@ -67,7 +82,10 @@ const ProductCard = ({ productName, description, defaultImage, hoverImage, soldB
               <button className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition">
                 Add to Cart
               </button>
-              <button className="bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-900 transition">
+              <button
+                onClick={toggleTooltip}
+                className="bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-900 transition"
+              >
                 View Details
               </button>
             </div>
@@ -79,6 +97,20 @@ const ProductCard = ({ productName, description, defaultImage, hoverImage, soldB
       <p className="text-gray-500 mt-2">{description}</p>
 
       <div className="mt-4">{renderFilters()}</div>
+
+      {/* Tooltip de ingredientes */}
+      {showTooltip && (
+        <div className="absolute top-0 left-0 bg-white shadow-lg border p-4 rounded-md mt-2 z-10">
+          <h4 className="text-teal-700 text-lg font-bold mb-2">Ingredients:</h4>
+          <p className="text-gray-700">{ingredients.join(', ')}</p>
+          <button
+            onClick={toggleTooltip}
+            className="mt-4 bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition"
+          >
+            Close
+          </button>
+        </div>
+      )}
     </motion.div>
   );
 };

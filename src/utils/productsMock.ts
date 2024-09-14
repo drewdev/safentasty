@@ -21,8 +21,10 @@ export interface Product {
   soldBy: string;
   filters: Filters;
   category: string;
-  price: number;  // Nueva propiedad para el precio en dólares
+  price: number;
+  ingredients: string[];  // Nueva propiedad para los ingredientes
 }
+
 
 const base = process.env.BASE_URL || '/';
 
@@ -48,7 +50,8 @@ export const products: Product[] = [
       paleo: false,
     },
     category: "Bakery",
-    price: 15.99,  // Precio en dólares
+    price: 15.99,
+    ingredients: ["Almond flour", "Cocoa powder", "Coconut oil", "Maple syrup", "Vanilla extract"],
   },
   {
     productName: "Gluten-Free Brownie",
@@ -71,7 +74,8 @@ export const products: Product[] = [
       paleo: false,
     },
     category: "Bakery",
-    price: 7.49,  // Precio en dólares
+    price: 7.49,
+    ingredients: ["Rice flour", "Cocoa powder", "Sugar", "Butter", "Eggs", "Vanilla extract"],
   },
   {
     productName: "Keto Almond Cookies",
@@ -94,7 +98,8 @@ export const products: Product[] = [
       paleo: false,
     },
     category: "Bakery",
-    price: 9.99,  // Precio en dólares
+    price: 9.99,
+    ingredients: ["Almond flour", "Coconut oil", "Erythritol", "Vanilla extract", "Egg whites"],
   },
   {
     productName: "Vegan Lasagna",
@@ -117,7 +122,8 @@ export const products: Product[] = [
       paleo: false,
     },
     category: "Dishes",
-    price: 13.99,  // Precio en dólares
+    price: 13.99,
+    ingredients: ["Whole wheat pasta", "Tomato sauce", "Cashew cheese", "Spinach", "Mushrooms"],
   },
   {
     productName: "Gluten-Free Turkey Sandwich",
@@ -140,7 +146,8 @@ export const products: Product[] = [
       paleo: false,
     },
     category: "Sandwiches",
-    price: 8.99,  // Precio en dólares
+    price: 8.99,
+    ingredients: ["Gluten-free bread", "Turkey slices", "Avocado", "Lettuce", "Olive oil"],
   },
   {
     productName: "Keto Grilled Cheese Sandwich",
@@ -163,7 +170,8 @@ export const products: Product[] = [
       paleo: false,
     },
     category: "Sandwiches",
-    price: 10.49,  // Precio en dólares
+    price: 10.49,
+    ingredients: ["Low-carb bread", "Cheddar cheese", "Butter", "Garlic powder"],
   },
   {
     productName: "Paleo Chicken Salad",
@@ -186,7 +194,8 @@ export const products: Product[] = [
       paleo: true,
     },
     category: "Dishes",
-    price: 12.99,  // Precio en dólares
+    price: 12.99,
+    ingredients: ["Chicken breast", "Avocado", "Mixed greens", "Olive oil", "Lemon juice"],
   },
   {
     productName: "Soy-Free Veggie Burger",
@@ -209,7 +218,8 @@ export const products: Product[] = [
       paleo: false,
     },
     category: "Sandwiches",
-    price: 11.99,  // Precio en dólares
+    price: 11.99,
+    ingredients: ["Gluten-free bun", "Black beans", "Quinoa", "Carrots", "Avocado"],
   },
   {
     productName: "Egg-Free Quinoa Salad",
@@ -232,6 +242,7 @@ export const products: Product[] = [
       paleo: true,
     },
     category: "Dishes",
-    price: 10.99,  // Precio en dólares
+    price: 10.99,
+    ingredients: ["Quinoa", "Cucumber", "Tomatoes", "Olive oil", "Lemon juice"],
   },
 ];
