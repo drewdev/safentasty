@@ -80,13 +80,13 @@ const ProductCard = ({
             <div className="space-x-4">
               <p className="text-lg font-bold mb-3">${price.toFixed(2)}</p>
               <button className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition">
-                Add to Cart
+                🛒 Add to Cart
               </button>
               <button
                 onClick={toggleTooltip}
                 className="bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-900 transition"
               >
-                View Details
+                🔎 View Details
               </button>
             </div>
           </motion.div>
