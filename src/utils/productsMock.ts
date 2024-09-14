@@ -24,12 +24,14 @@ export interface Product {
   price: number;  // Nueva propiedad para el precio en dólares
 }
 
+const base = process.env.BASE_URL || '/';
+
 export const products: Product[] = [
   {
     productName: "Vegan Chocolate Cake",
     description: "Dairy-free, gluten-free, and irresistibly delicious.",
-    defaultImage: "/images/choco-cake-a.png",
-    hoverImage: "/images/choco-cake-b.png",
+    defaultImage: `${ base }images/choco-cake-a.png`,
+    hoverImage: `${ base }images/choco-cake-b.png`,
     soldBy: "VeggieBakes",
     filters: {
       glutenFree: true,
@@ -51,8 +53,8 @@ export const products: Product[] = [
   {
     productName: "Gluten-Free Brownie",
     description: "Rich and chewy with zero gluten.",
-    defaultImage: "/images/brownie-a.png",
-    hoverImage: "/images/brownie-b.png",
+    defaultImage: `${ base }images/brownie-a.png`,
+    hoverImage: `${ base }images/brownie-b.png`,
     soldBy: "VeggieBakes",
     filters: {
       glutenFree: true,
@@ -74,8 +76,8 @@ export const products: Product[] = [
   {
     productName: "Keto Almond Cookies",
     description: "Crunchy, delicious, and keto-friendly.",
-    defaultImage: "/images/keto-almond-a.png",
-    hoverImage: "/images/keto-almond-b.png",
+    defaultImage: `${ base }images/keto-almond-a.png`,
+    hoverImage: `${ base }images/keto-almond-b.png`,
     soldBy: "VeggieBakes",
     filters: {
       glutenFree: true,
@@ -97,8 +99,8 @@ export const products: Product[] = [
   {
     productName: "Vegan Lasagna",
     description: "Layers of plant-based goodness with rich tomato sauce and dairy-free cheese.",
-    defaultImage: "/images/vegan-lasagna-a.png",
-    hoverImage: "/images/vegan-lasagna-b.png",
+    defaultImage: `${ base }images/vegan-lasagna-a.png`,
+    hoverImage: `${ base }images/vegan-lasagna-b.png`,
     soldBy: "GreenEats",
     filters: {
       glutenFree: false,
@@ -120,8 +122,8 @@ export const products: Product[] = [
   {
     productName: "Gluten-Free Turkey Sandwich",
     description: "Fresh turkey slices with avocado, lettuce, and gluten-free bread.",
-    defaultImage: "/images/turkey-sandwich-a.png",
-    hoverImage: "/images/turkey-sandwich-b.png",
+    defaultImage: `${ base }images/turkey-sandwich-a.png`,
+    hoverImage: `${ base }images/turkey-sandwich-b.png`,
     soldBy: "DailyFresh",
     filters: {
       glutenFree: true,
@@ -143,8 +145,8 @@ export const products: Product[] = [
   {
     productName: "Keto Grilled Cheese Sandwich",
     description: "A cheesy delight for keto lovers, made with low-carb bread and cheddar cheese.",
-    defaultImage: "/images/keto-grilled-cheese-a.png",
-    hoverImage: "/images/keto-grilled-cheese-b.png",
+    defaultImage: `${ base }images/keto-grilled-cheese-a.png`,
+    hoverImage: `${ base }images/keto-grilled-cheese-b.png`,
     soldBy: "CheesyKeto",
     filters: {
       glutenFree: true,
@@ -166,8 +168,8 @@ export const products: Product[] = [
   {
     productName: "Paleo Chicken Salad",
     description: "Fresh chicken salad with a mix of leafy greens, avocado, and olive oil dressing.",
-    defaultImage: "/images/paleo-chicken-salad-a.png",
-    hoverImage: "/images/paleo-chicken-salad-b.png",
+    defaultImage: `${ base }images/paleo-chicken-salad-a.png`,
+    hoverImage: `${ base }images/paleo-chicken-salad-b.png`,
     soldBy: "PaleoBites",
     filters: {
       glutenFree: true,
@@ -189,8 +191,8 @@ export const products: Product[] = [
   {
     productName: "Soy-Free Veggie Burger",
     description: "Delicious plant-based burger without soy, served with a gluten-free bun.",
-    defaultImage: "/images/veggie-burger-a.png",
-    hoverImage: "/images/veggie-burger-b.png",
+    defaultImage: `${ base }images/veggie-burger-a.png`,
+    hoverImage: `${ base }images/veggie-burger-b.png`,
     soldBy: "HealthyEats",
     filters: {
       glutenFree: true,
@@ -212,8 +214,8 @@ export const products: Product[] = [
   {
     productName: "Egg-Free Quinoa Salad",
     description: "A hearty salad with quinoa, fresh veggies, and a light lemon dressing.",
-    defaultImage: "/images/quinoa-salad-a.png",
-    hoverImage: "/images/quinoa-salad-b.png",
+    defaultImage: `${ base }images/quinoa-salad-a.png`,
+    hoverImage: `${ base }images/quinoa-salad-b.png`,
     soldBy: "VeganDelights",
     filters: {
       glutenFree: true,

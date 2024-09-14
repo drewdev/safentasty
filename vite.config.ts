@@ -5,6 +5,9 @@ import react from '@vitejs/plugin-react'
 export default defineConfig(({ mode }) => {
   return {
     base: mode === 'production' ? '/safentasty/' : '/',
+    define: {
+      'process.env.BASE_URL': JSON.stringify(mode === 'production' ? '/safentasty/' : '/'),
+    },
     plugins: [react()],
   }
 })
